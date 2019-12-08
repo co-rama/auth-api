@@ -5,18 +5,21 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+//Import routes
+const authRoute = require('./routes/auth');
+
+// Middleware
+app.use(express.json());
+
+
 // DB connection
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
     console.log('Connected to DB');
 })
 
-//Import routes
-const authRoute = require('./routes/auth');
-
-
-
 // Route middleware
 app.use('/api/user', authRoute);
+
 
 
 app.listen('3000', () => {
