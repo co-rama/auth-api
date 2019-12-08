@@ -1,1 +1,8 @@
-package.json
+# npm package json
+package*
+
+# node modules
+node_modules
+
+# dot env
+.env
