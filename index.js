@@ -13,8 +13,12 @@ app.use(express.json());
 
 
 // DB connection
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
-    console.log('Connected to DB');
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, (err) => {
+    if(err){
+        console.log('Error connecting to the DB')
+    }else{
+        console.log('Connected to DB');
+    }
 })
 
 // Route middleware
