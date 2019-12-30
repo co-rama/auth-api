@@ -52,7 +52,7 @@ router.delete('/:userID', async (req, res) => {
 router.patch('/:UserID', async (req, res) =>{
     try {
         const updatedUser = await User.updateOne({_id : req.params.userID}, 
-            {$set : { name : req.body.name}});
+            {$set : { name : req.body.name }});
 
             res.json(updatedUser);
     } catch (error) {
